@@ -5,15 +5,15 @@
 class Emitter {
   ArrayList<Particle> particles;
   
-  Emitter(float x, float y) {
+  Emitter() {
     this.particles = new ArrayList<Particle>();
   }
 
-  void addParticle() {
+  void addParticle(float x, float y) {
     //particles will be added to where mouse is
     //allows origin to move around dynamically
     //
-    this.particles.add(new Particle(mouseX, mouseY));
+    this.particles.add(new Particle(x, y));
   }
 
   void run() {

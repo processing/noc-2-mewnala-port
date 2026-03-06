@@ -2,11 +2,11 @@ Emitter emitter;
 
 void setup() {
   size(640,360);
-  emitter = new Emitter(width/2, 50);
+  emitter = new Emitter();
 }
 
 void draw() {
   background(255);
-  emitter.addParticle();
+  emitter.addParticle(mouseX, mouseY);
   emitter.run();
 }
