@@ -10,19 +10,19 @@ class Particle {
   PVector position, velocity, acceleration;
   float lifespan, radius;
   
+  
   Particle(float x, float y, float radius) {
     
     this.position =  new PVector(x, y);
-    this.velocity = new PVector(random(-1, 1), random(-2, 0));
+    this.velocity = new PVector(0, 0); //starts of stationary
     this.acceleration = new PVector(0, 0);
-    this.lifespan = 255.0;
+    this.lifespan = 255;
     this.radius = radius;
 
   }
 
   void run() {
-    PVector gravity = new PVector(0, 0.05);
-    this.applyForce(gravity);
+
     this.update();
     this.show();
   }
@@ -41,10 +41,15 @@ class Particle {
 
   // Method to display
   void show() {
-    stroke(0, this.lifespan);
+    //I have removed the lifespan which acts as the alpha channel, because I didnt want you to see
+    //the individual squares that make up the big square
+    //
+    stroke(127);
     strokeWeight(2);
-    fill(127, this.lifespan);
-    circle(this.position.x, this.position.y, this.radius);
+    fill(127);
+
+    rectMode(CENTER);
+    rect(this.position.x, this.position.y, this.radius, this.radius);
   }
 
   // Is the particle still useful?

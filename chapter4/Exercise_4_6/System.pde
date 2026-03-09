@@ -5,7 +5,7 @@
 import java.util.Random;
 Random stream = new Random();
 
-class Emitter {
+class System {
 
   PVector origin;
   ArrayList<Particle> particles;
@@ -13,49 +13,69 @@ class Emitter {
   int maxNumParticles; //having a set number of particles will allows the system to come to an end
   int count; //used to keep track of the number of particles in system
 
-  float radius; //radius will shrink as broken objects gets shattered into smaller peices
+  int rows;
+  int columns;
 
-  Emitter(float x, float y) {
+  float radius; //radius will shrink as broken objects gets shattered into smaller peices
+  PVector gravity; //This force is applied to all particles in this system
+
+  System(float x, float y) {
 
     this.origin = new PVector(x, y);
 
     this.particles = new ArrayList<Particle>();
-    this.maxNumParticles = stream.nextInt(100) + 1;
+    this.rows = stream.nextInt(10) + 2;
+    this.columns = this.rows;
+
+    this.maxNumParticles = this.rows*this.columns; //dealing with a nice square number, will be 4 or bigger
+
     this.count = 0;
     this.radius = 16;
 
+    this.gravity = new PVector(0, 0.05);
+
+    //we are going to make the particle a square made up of smaller squares
+    //we will use the starting co-ordinates provided as the center of the top left partticle.
+    //
+    for (int i = 0; i < this.rows; ++i) {
+
+      for (int j = 0; j < this.columns; ++j) {
+
+        addParticle(x+(j*this.radius), y+(i*this.radius));
+
+      }
+    }
     
   }
 
-  void addParticle() {
+  void addParticle(float x, float y) {
 
     if (this.count < this.maxNumParticles) {
 
-        if (this.count == 0) {
-            
-            this.particles.add(new Particle(this.origin.x-2, this.origin.y, this.radius));
-            this.particles.add(new Particle(this.origin.x+2, this.origin.y, this.radius));
-        }
+      this.particles.add(new Particle(x, y, this.radius));
+      this.count+=1;
 
-        else {
-
-            //used to keep track of the previous position of particle
-            //the new particle will be addded there so when a particle is shattered, the new particle is placed at that position
-            //
-            PVector previousLocation = this.particles.get(this.particles.size() - 1).position;
-            this.particles.add(new Particle(previousLocation.x-2, previousLocation.y + 10, this.radius));
-            this.particles.add(new Particle(previousLocation.x+2, previousLocation.y + 10, this.radius));
-            
-        }
-
-        this.count += 2;
-        this.radius = this.radius/2;
     }
+  }
+
+  void BreakIntoPeices() {
+
+    //Looping through backwards to delete
+
+    for (Particle particle : this.particles) {
+
+      //generate new RandomForce and apply it to each particle
+      //
+      PVector randomForce = PVector.random2D();
+      particle.applyForce(randomForce);
+    }
+
   }
 
   void run() {
     // Looping through backwards to delete
     for (int i = this.particles.size() - 1; i >= 0; i--) {
+      this.particles.get(i).applyForce(gravity);
       this.particles.get(i).run();
       if (this.particles.get(i).isDead()) {
         // Remove the particle

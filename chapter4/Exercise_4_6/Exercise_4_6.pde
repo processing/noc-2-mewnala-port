@@ -8,17 +8,22 @@
 // list of particles.
 
 
-Emitter emitter;
+System particleSystem;
 
 void setup() {
   size(640, 360);
-  emitter = new Emitter(width/2, height/2);
+  particleSystem = new System(width/2-50, 50);
   frameRate(30); //slowding down the frame rate so you can see the animation more clearly;
 
 }
 
 void draw() {
     background(255);
-    emitter.run();
-    emitter.addParticle();
+    particleSystem.run();
+}
+
+void mousePressed() {
+
+  particleSystem.BreakIntoPeices();
+
 }
