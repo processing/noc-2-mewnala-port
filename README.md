@@ -28,8 +28,6 @@ pip install mewnala
 python my_ported_sketch.py
 ```
 
-```
-
 ## Repository Structure
 
 The code examples are organized by chapters, starting from Chapter 0. Within each chapter, examples are numbered sequentially (e.g., `Example_0_1`, `Example_0_2`).  
