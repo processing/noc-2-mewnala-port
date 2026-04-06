@@ -1,6 +1,6 @@
 # The Nature of Code: Porting ~~from p5.js to Processing~~ from Processing to Mewnala
 
-This repository is a collaborative effort to port the code examples from [Daniel Shiffman's book *The Nature of Code*](https://natureofcode.com/) ~~from the **Processing** programming language to python **Mewnala**.
+This repository is a collaborative effort to port the code examples from [Daniel Shiffman's book *The Nature of Code*](https://natureofcode.com/) from the **Processing** programming language to python **Mewnala**.
 
 Note: Our python library `mewnala` is very early and has missing functionality, so be prepared for things not working and to have to ask us lots of questions in the [#libprocessing discord](https://discord.com/channels/1076634729618624534/1473643112512491692).
 
