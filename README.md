@@ -28,6 +28,8 @@ pip install mewnala
 python my_ported_sketch.py
 ```
 
+After you have `mewnala` set up (and tried running some example sketches!) head over to [TODO.md](TODO.md) to see what needs to be done!
+
 ## Repository Structure
 
 The code examples are organized by chapters, starting from Chapter 0. Within each chapter, examples are numbered sequentially (e.g., `Example_0_1`, `Example_0_2`).  
