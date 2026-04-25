@@ -2,7 +2,7 @@
 
 from mewnala import *
 from math import floor
-from random import random
+from random import random # TODO: confirm if random can be imported from mewnala or from python standard library
 
 randomCounts = None
 total = 20
@@ -22,7 +22,7 @@ def draw():
 
     # Draw a rectangle to graph results
     stroke(0)
-    # strokeWeight(2) # TODO: undefined
+    stroke_weight(2)
     fill(127)
     w = width / len(randomCounts)
 

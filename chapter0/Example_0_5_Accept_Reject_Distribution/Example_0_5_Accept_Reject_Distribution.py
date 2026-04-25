@@ -1,7 +1,6 @@
 # An array to keep track of how often random numbers are picked
 
 from mewnala import *
-from math import floor
 from random import random
 
 randomCounts = None
@@ -24,7 +23,7 @@ def draw():
 
     # Draw a rectangle to graph results
     stroke(0)
-    # strokeWeight(2) # TODO: undefined
+    stroke_weight(2)
     fill(127)
 
     w = width / len(randomCounts)

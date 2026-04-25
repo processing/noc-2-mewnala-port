@@ -1,7 +1,5 @@
 
 from mewnala import *
-from math import floor
-from random import random
 
 width = 640
 height = 360
@@ -12,8 +10,8 @@ def setup():
 
 def draw():
     # A normal distribution with mean 320 and standard deviation 60
-    x = randomGaussian() * 60 + 320 # TODO: randomGaussian not determined
-    noStroke()
+    x = random_gaussian() * 60 + 320 # TODO: random_gaussian not determined
+    no_stroke()
     fill(0, 10)
     circle(x, 120, 16)
     

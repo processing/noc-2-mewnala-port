@@ -20,16 +20,17 @@ class Walker:
         self.ty += 0.01
     
     def show(self):
-        strokeWeight(2) # TODO: undefined
+        stroke_weight(2) # TODO: undefined
         fill(127)
         stroke(0)
         circle(self.x, self.y, 48)
-
+ 
 walker = Walker()
 
 def setup():
     size(width, height)
     background(255)
+    print(map)
 
 def draw():
     walker.step()
