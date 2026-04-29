@@ -2,11 +2,8 @@
 from mewnala import *
 import random
 
-width = 640
-height = 360
-
 def setup():
-    size(width, height)
+    size(640, 360)
     background(255)
 
 def draw():

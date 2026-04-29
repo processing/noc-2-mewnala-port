@@ -21,11 +21,11 @@ class Walker:
         else:            
             self.y -= 1
         
-walker = Walker()
-
 def setup():
     size(640, 360)
     background(255)
+    global walker
+    walker = Walker()
 
 def draw():
     walker.step()

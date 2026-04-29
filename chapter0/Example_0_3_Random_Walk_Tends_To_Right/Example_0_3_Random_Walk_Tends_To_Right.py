@@ -26,11 +26,11 @@ class Walker:
         self.x = max(0, min(self.x, width - 1))
         self.y = max(0, min(self.y, height - 1))
 
-# Creating the Walker object!
-walker = Walker()
-
 def setup():
-    size(640, 360)
+    size(640, 360) 
+    # Creating the Walker object!
+    global walker
+    walker = Walker()
     background(255)
 
 def draw():
