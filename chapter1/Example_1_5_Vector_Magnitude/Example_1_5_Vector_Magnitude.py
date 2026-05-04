@@ -1,7 +1,5 @@
 # Example 1-5: Vector magnitude
 
-from turtle import width
-
 from mewnala import *
 from mewnala.math import *
 import math

@@ -29,6 +29,3 @@ class Mover:
             self.position[1] = 0
         elif self.position[1] < 0:
             self.position[1] = height
-
-        
-mover = Mover()
