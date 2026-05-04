@@ -28,7 +28,6 @@ walker = Walker()
 def setup():
     size(640, 360)
     background(255)
-    print(map)
 
 def draw():
     walker.step()
