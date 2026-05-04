@@ -14,6 +14,8 @@ def draw():
     mouse = vec2(mouse_x, mouse_y)
     center = vec2(width / 2, height / 2)
 
+mouse -= center
+
     # Draw the original two vectors
     stroke_weight(2)
     stroke(200)
