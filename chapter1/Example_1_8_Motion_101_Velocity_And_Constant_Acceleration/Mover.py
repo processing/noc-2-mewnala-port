@@ -13,14 +13,8 @@ class Mover:
         self.topSpeed = 10
 
     def update(self):
-        self.velocity += self.acceleration #TODO ask if we can use arithmetic fn, or use mewnala fn
-        
-        # limit the velocity to the top speed
-        # TODO ask if we can use math fn or we implement manually or we use mewnala fn? for magnitude and limit
-        mag = math.hypot(self.velocity[0], self.velocity[1])  # magnitude of velocity
-        if mag > self.topSpeed:
-            self.velocity *= self.topSpeed / mag
-
+        self.velocity += self.acceleration
+        self.velocity.limit(self.topSpeed)
         self.position += self.velocity
     
     def show(self):

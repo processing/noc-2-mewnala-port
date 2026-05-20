@@ -27,9 +27,7 @@ def draw():
     line(0, 0, mouse[0], mouse[1])
 
     # Normalize the vector
-    #TODO ask if we use math fn or we implement manually or we use mewnala fn? for normalize
-    mag = math.hypot(mouse[0], mouse[1])  # magnitude of mouse vector
-    mouse /= mag
+    mouse.normalize()
 
     # Multiply its length by 50
     mouse *= 50

@@ -1,17 +1,17 @@
 from mewnala import *
 from mewnala.math import *
-import random
+from random import uniform as random
 
 # width = 640
 # height = 360
 # TODO ask if width and height from the main sketch file will be ported to the class or has to be defined, as currently it seems unported
 class Mover:
     def __init__(self):
-        self.position = vec2(random.uniform(0, width), random.uniform(0, height))
-        self.velocity = vec2(random.uniform(-2, 2), random.uniform(-2, 2))
+        self.position = vec2(random(0, width), random(0, height))
+        self.velocity = vec2(random(-2, 2), random(-2, 2))
 
     def update(self):
-        self.position += self.velocity #TODO ask if we can use arithmetic fn, or use mewnala fn 
+        self.position += self.velocity
     
     def show(self):
         stroke(0)

@@ -1,10 +1,9 @@
 from mewnala import *
 from mewnala.math import *
-import math
-import random
+from random import uniform as random
 
-width = 640
-height = 360
+# width = 640
+# height = 360
 # TODO ask if width and height from the main sketch file will be ported to the class or has to be defined in
 class Mover:
     def __init__(self):
@@ -15,18 +14,11 @@ class Mover:
 
     def update(self):
         # The random2D() function returns a unit vector pointing in a random direction.
-        self.acceleration = vec2(random.uniform(-1, 1), random.uniform(-1, 1))
-        self.acceleration *= random.uniform(0, 2) # TODO arithmetic or mewnala fn?
+        self.acceleration = vec2(random(-1, 1), random(-1, 1)) # TODO random or mewnala fn?
 
-        self.velocity += self.acceleration # TODO arithmetic or mewnala fn?
-        
-        # limit the velocity to the top speed
-        # TODO ask if we can use math fn or we implement manually or we use mewnala fn? for magnitude and limit
-        mag = math.hypot(self.velocity[0], self.velocity[1])  # magnitude of velocity
-        if mag > self.topSpeed:
-            self.velocity *= self.topSpeed / mag
-
-        self.position += self.velocity # TODO arithmetic or mewnala fn?
+        self.velocity += self.acceleration
+        self.velocity.limit(self.topSpeed);
+        self.position += self.velocity
     
     def show(self):
         stroke(0)
