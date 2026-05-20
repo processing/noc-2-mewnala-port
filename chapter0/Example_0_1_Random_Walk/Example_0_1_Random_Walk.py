@@ -1,5 +1,5 @@
 from mewnala import *
-import random
+from random import randint as random
 
 class Walker:
     def __init__(self):
@@ -11,7 +11,7 @@ class Walker:
         point(self.x, self.y)
     
     def step(self):
-        choice = random.randint(0, 3)
+        choice = random(0, 3)
         if (choice == 0):
             self.x += 1
         elif (choice == 1):

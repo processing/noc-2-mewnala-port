@@ -1,7 +1,7 @@
 # An array to keep track of how often random numbers are picked
 
 from mewnala import *
-import random
+from random import randint as random
 
 randomCounts = None
 total = 20
@@ -13,7 +13,7 @@ def setup():
     
 def draw():
     background(255)
-    index = random.randint(0, total - 1)
+    index = random(0, total - 1)
     randomCounts[index] += 1
 
     # Draw a rectangle to graph results

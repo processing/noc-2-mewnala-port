@@ -1,7 +1,7 @@
 # An array to keep track of how often random numbers are picked
 
 from mewnala import *
-import random
+from random import uniform as random
 
 randomCounts = None
 total = 20
@@ -34,11 +34,11 @@ def acceptreject():
   # We do this “forever” until we find a qualifying random value.
   while True:
     # Pick a random value.
-    r1 = random.uniform(0, 1)
+    r1 = random(0, 1)
     # Assign a probability.
     probability = r1
     # Pick a second random value.
-    r2 = random.uniform(0, 1)
+    r2 = random(0, 1)
 
     # {!3} Does it qualify? If so, we're done!
     if (r2 < probability):

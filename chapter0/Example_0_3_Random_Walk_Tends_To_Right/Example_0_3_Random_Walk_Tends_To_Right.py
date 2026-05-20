@@ -1,6 +1,6 @@
 
 from mewnala import *
-import random
+from random import uniform as random
 
 class Walker:
     def __init__(self):
@@ -12,7 +12,7 @@ class Walker:
         point(self.x, self.y)
     
     def step(self):
-        r = random.uniform(0, 1)
+        r = random(0, 1)
         # A 40% of moving to the right!
         if (r < 0.4):
             self.x += 1
@@ -36,9 +36,7 @@ def setup():
 def draw():
     walker.step()
     walker.show()
-
-
-            
+        
 run()
 
 
